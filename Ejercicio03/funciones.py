@@ -1,16 +1,21 @@
-def sumaHastaMax(numeroMax):
+def sumaHastaMax(cola):
     suma = 0
-    rango = range(numeroMax+1)
-    while True:
+    numeroMax = cola.get()
+    rango = range((int)(numeroMax+1))
+    while numeroMax is not None:
 
         for numero in rango:
             suma+=numero
-        
-        return suma
+
+    cola.put(None)
+    print (suma)
+
    
 
-def leeNumeros(nombreArchivo):
-    archivo = open(nombreArchivo, "rt")
-    numeros = archivo.readline()
+def leeNumeros(nombreArchivo, cola):
+    archivo = open(nombreArchivo, "r")
+    numeros = archivo.read()
+    for numero in numeros:
+        cola.put(numero)
     archivo.close()
-    return numeros
+    return cola
