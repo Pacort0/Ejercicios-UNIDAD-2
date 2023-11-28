@@ -7,8 +7,4 @@ def generateIp(numeroIPs, conn):
         conn.send(ip)
     conn.send(None) 
 
-def filtraIp(right1, left2):
-    ip = right1.recv()
-    while ip is not None:
-        partes = ip.split(".")
-        parte = partes[]
+

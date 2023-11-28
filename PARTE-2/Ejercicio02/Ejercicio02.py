@@ -1,15 +1,22 @@
 from multiprocessing import *
 from funciones import *
+from multiprocessing.connection import PipeConnection
 
 ficheroNumeros = "Ejercicio03//numeros.txt"
 
+def generateIp(numeroIPs, tuberia:PipeConnection):
+    for ip in range(numeroIPs):
+        ip=""
+        for _ in range(4):
+            ip += str(randint(0, 255))
+            if _ != 3:
+                ip+="."
+        else:
+            tuberia.send(ip)
+
+def filtraABC(tubleft:PipeConnection, tubright:PipeConnection):
+    ip = tubleft.recv()
+    
+
 if __name__ == '__main__':
-    left, right = Pipe()
-    p1 = Process(target=generateIp, args=(10, left,))
-    p2 = Process(target=leeNumeros, args=(ficheroNumeros, right,))
-
-    p1.start()
-    p2.start()
-
-    p2.join()
-    p1.join()
+    generateIp(10)
