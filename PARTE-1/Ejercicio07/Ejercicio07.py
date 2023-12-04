@@ -1,7 +1,7 @@
 from funciones import *
 from multiprocessing import *
 
-ficheroNumeros = "Ejercicio07//numeros.txt"
+ficheroNumeros = "numeros.txt"
 
 if __name__ == '__main__':
     queue = Queue()

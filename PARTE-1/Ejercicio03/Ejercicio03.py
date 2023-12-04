@@ -1,7 +1,7 @@
 from funciones import *
 from multiprocessing import *
 
-ficheroNumeros = "Ejercicio03//numeros.txt"
+ficheroNumeros = "C:/Users/Usuario/Desktop/DAM 2/PSP/Ejercicios_Multiprocessing/Ejercicios-UNIDAD-2/Ejercicios-UNIDAD-2/PARTE-1/Ejercicio03/numeros.txt"
 
 if __name__ == '__main__':
     queue = Queue()
