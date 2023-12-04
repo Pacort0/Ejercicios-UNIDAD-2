@@ -1,7 +1,7 @@
 from multiprocessing import *
 
 def enviaPelis(anioPeli, cola:Queue):
-    with open("peliculas.txt") as archivo:
+    with open("PARTE-2/Ejercicio04/peliculas.txt") as archivo:
         for linea in archivo.readlines(): #leemos el archivo por líneas
             linea = linea.split(";") #quitamos el salto de línea de 
             if str(linea[1].strip()) == (str(anioPeli)): #Si el año de la pelicula coincide con el pasado por parámetros
@@ -18,7 +18,7 @@ def ficheroPorAnio(anioPeli, cola:Queue):
 
 if __name__ == "__main__":
     queue = Queue()
-    anio = 2019
+    anio = input("Por favor, introduzca un año (2010-2019): ")
 
     p1 = Process(target=enviaPelis, args=(anio, queue))
     p2 = Process(target=ficheroPorAnio, args=(anio, queue))
