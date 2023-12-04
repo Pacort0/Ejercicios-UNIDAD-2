@@ -3,30 +3,31 @@ import random
 import time
 
 def procesoGeneraNotas(cantidad, fichero):
-    with open(fichero, "w") as archivo:
-        for i in range(cantidad):
+    with open(fichero, "w") as archivo: 
+        for i in range(cantidad): #Creamos X numeros random y los escribimos en el archivo
             num = round(random.uniform(0,10), 2)
             archivo.write(f"{num}\n")
 
 def mediaNota(fichero, nombreAlumno):
-    with open(fichero, "r") as archivo:
+    with open(fichero, "r") as archivo: 
         suma = 0
-        for linea in archivo.readlines():
+        for linea in archivo.readlines(): #Calculamos la media de las notas del alumno
             nota = float(linea)
             suma += nota
         media = suma/6
     with open("medias.txt", "a") as medias:
+        #Escribimos la media y el nombre del alumno en el fichero
         medias.write(f"{round(media, 2)} {nombreAlumno}\n")
 
 def notaMax():
     notaMax = 0.0
     nombreAlumno = ""
     with open("medias.txt", "r") as medias:
-        for _ in medias.readlines():
-            linea = _.split(" ")
-            if float(linea[0]) > notaMax:
-                notaMax = float(linea[0])
-                nombreAlumno = linea[1]
+        for _ in medias.readlines(): #Leemos el fichero por lineas
+            linea = _.split(" ") #Separamos por espacios
+            if float(linea[0]) > notaMax: #Si la nota leida es mayor a la guardada
+                notaMax = float(linea[0]) #La nota máxima pasa a ser esa
+                nombreAlumno = linea[1] #El nombre del alumno que ha sacado la nota se guarda
         print("Nota máxima =",notaMax,"Alumno =", nombreAlumno)
 
 
