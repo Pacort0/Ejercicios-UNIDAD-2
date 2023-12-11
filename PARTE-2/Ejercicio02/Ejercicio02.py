@@ -6,7 +6,7 @@ ficheroNumeros = "Ejercicio03//numeros.txt"
 
 def procesoGeneraIp(direcciones, tuberia:PipeConnection):
     ip=""
-    for direccion in range(direcciones):
+    for _ in range(direcciones):
         for _ in range(4):
             ip += str(randint(0, 255))
             if _ != 3:
